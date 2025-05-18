@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root{
+    --primaria: rgb(0, 119, 255);
+    --secundaria:rgb(74, 0, 170);
+    --terciaria: rgb(0, 255, 242);
+    --claro: rgba(255, 255, 255, 0.1);
+    --escuro: #0a0f1c;
+}
+
+body{
+    background-color: var(--escuro);
+    color:aliceblue;
+}
+
+.navegacao {
+    position: fixed;
+    top: 0;
+    background: rgba(15, 23, 42, 0.8);
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 4rem;
+
+
+}
+
+.menu-link{
+    text-decoration: none;
+    color:aliceblue;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.menu-link::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--terciaria);
+    transition: width 0.5s ease;
+
+}
+
+.menu-link:hover::after{
+    width: 100%;
+
+}
+
+.cabecalho {
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.foto-perfil {
+    width: 310px;
+    height: 310px;  
+    box-shadow: rgb(0, 183, 255) 0px 4px 55px, rgb(0, 247, 255) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 50%;
+    border: 4px solid var(--claro);
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primaria);
+    font-weight: bold;
+    margin: 20px;
+}
+
+.sub-titulo{
+    font-size: 1.5rem;
+    color: aliceblue;
+}
+
+.sobre{
+    padding: 6rem 2rem;
+}
+
+.sobre-titulo{
+    font-size: 3rem;
+    color: aliceblue;
+    text-align: center;
+}
+
+.sobre-caixa{
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--terciaria);
+    backdrop-filter: blur(10px);
+    background: var(--secundaria);
+}
+
+
+.sobre-paragrafo{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.projetos{
+    padding: 6rem 2rem;
+
+}
+
+.projetos-caixa{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projetos-card{
+    background: var(--claro);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--claro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+
+}
+
+.projetos-titulo{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.projetos-card:hover{
+    box-shadow: rgba(0, 255, 255, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transform: translateY(-10px) scale(1.03);
+}
+
+
+.projeto-imagem{
+    height: 300px;
+    width: 100%;
+    object-fit: scale-down;
+}
+
+.caixa-textos-projeto {
+    padding: 1.5rem;
+
+}
+
+.paragrafo-projetos{
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.25rem;
+}
+
+.info-projetos{
+    margin-bottom: 5px;
+}
+
+.redes-sociais{
+    padding: 6rem 2rem;
+}
+
+.redes-sociais-text{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+
+}
+
+.icones{
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  gap: 2rem;                
+  margin-top: 2rem;
+  flex-wrap: wrap; 
+}
+
+.icones img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/*VERSÃO MOBILE*/
+
+@media screen and (max-width: 756px){
+    .cabecalho {
+        text-align: center;
+    }
+    
+    
+    /*CABEÇALHO*/
+    .foto-perfil{
+        width: 180px;
+        height: 180px;
+    }
+    
+    .navegacao{
+        display: none;
+    }
+
+    h1{
+        font-size: 30px;
+    }
+
+    .sub-titulo{
+        font-size: 19px;
+    }
+
+    .sobre-titulo{
+        font-size: 40px;
+    }
+    .redes-sociais-text{
+        font-size: 30px;
+    }
+    
+}
+
